@@ -8,36 +8,45 @@
 		<version>3.1.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.mehrdad.falahati</groupId>
 	<artifactId>url-shortening-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
     <packaging>pom</packaging>
     <name>url-shortening-system</name>
-	<description>Demo project for Spring Boot</description>
+	<description>This is a project for converting urls to short-urls</description>
+
     <modules>
         <module>user-service</module>
-    </modules>
+		<module>common</module>
+	</modules>
+
     <properties>
 		<java.version>17</java.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<artifactId>spring-boot-starter-logging</artifactId>
 		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<release>17</release>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
