@@ -1,5 +1,6 @@
 package com.mehrdad.falahati.user.service.security.util;
 
+import com.mehrdad.falahati.user.service.domain.dto.user.UserDto;
 import com.mehrdad.falahati.user.service.domain.entity.User;
 import com.mehrdad.falahati.user.service.security.config.JwtConfig;
 import io.jsonwebtoken.*;
@@ -18,9 +19,9 @@ public class JwtTokenUtil {
 
     private final JwtConfig jwtConfig;
 
-    public String generateAccessToken(User user) {
+    public String generateAccessToken(UserDto user) {
         return Jwts.builder()
-                .setSubject(String.format("%s,%s", user.getId(), user.getUsername()))
+                .setSubject(String.format("%s,%s", user.id(), user.username()))
                 .setIssuer(jwtConfig.getJwtIssuer())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 7 * 24 * 60 * 60 * 1000)) // 1 week

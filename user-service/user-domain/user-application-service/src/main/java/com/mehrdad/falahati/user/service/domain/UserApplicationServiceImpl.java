@@ -2,6 +2,7 @@ package com.mehrdad.falahati.user.service.domain;
 
 import com.mehrdad.falahati.user.service.domain.dto.user.CreateUserCommand;
 import com.mehrdad.falahati.user.service.domain.dto.user.CreateUserResponse;
+import com.mehrdad.falahati.user.service.domain.dto.user.UserDto;
 import com.mehrdad.falahati.user.service.domain.entity.User;
 import com.mehrdad.falahati.user.service.domain.exception.NotFoundException;
 import com.mehrdad.falahati.user.service.domain.exception.UserDomainException;
@@ -35,8 +36,9 @@ public class UserApplicationServiceImpl implements UserApplicationService {
 
     @Override
     @Transactional(readOnly = true)
-    public User getUserByUsername(String username) {
+    public UserDto getUserByUsername(String username) {
         return userRepository.findByUsername(username)
+                .map(userDataMapper::userToUserDto)
                 .orElseThrow(() -> new NotFoundException("User[username=" + username +"] not found!"));
     }
 

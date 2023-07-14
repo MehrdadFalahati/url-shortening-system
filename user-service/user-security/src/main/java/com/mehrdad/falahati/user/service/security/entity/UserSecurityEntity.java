@@ -1,5 +1,6 @@
 package com.mehrdad.falahati.user.service.security.entity;
 
+import com.mehrdad.falahati.user.service.domain.dto.user.UserDto;
 import com.mehrdad.falahati.user.service.domain.entity.Role;
 import com.mehrdad.falahati.user.service.domain.entity.User;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,11 +18,11 @@ public class UserSecurityEntity implements UserDetails {
     private final boolean isEnabled;
     private final Collection<? extends GrantedAuthority> authorities;
 
-    public UserSecurityEntity(User user) {
-        this.username = user.getUsername();
-        this.password = user.getPassword();
-        this.isEnabled = user.getEnabled();
-        this.authorities = getAuthorities(Set.of(user.getRole()));
+    public UserSecurityEntity(UserDto user) {
+        this.username = user.username();
+        this.password = user.password();
+        this.isEnabled = user.isEnable();
+        this.authorities = getAuthorities(Set.of(user.role()));
     }
 
     public Set<SimpleGrantedAuthority> getAuthorities(Set<Role> roles) {
