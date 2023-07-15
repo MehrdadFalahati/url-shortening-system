@@ -6,7 +6,6 @@ import com.mehrdad.falahati.url.shortener.service.domain.objectvalue.UrlShortene
 
 public class UrlShortenerClickingHistory extends BaseEntity<UrlShortenerClickingHistoryId> {
 
-    private final Object monitor = new Object();
     private final UrlShortenerMappingId urlShortenerMappingId;
     private final long clickCounter;
 

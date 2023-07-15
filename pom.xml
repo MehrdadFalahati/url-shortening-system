@@ -65,6 +65,26 @@
 				<artifactId>user-security</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.mehrdad.falahati</groupId>
+				<artifactId>url-shortener-domain-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mehrdad.falahati</groupId>
+				<artifactId>url-shortener-application-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mehrdad.falahati</groupId>
+				<artifactId>url-shortener-dataaccess</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mehrdad.falahati</groupId>
+				<artifactId>url-shortener-application</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
