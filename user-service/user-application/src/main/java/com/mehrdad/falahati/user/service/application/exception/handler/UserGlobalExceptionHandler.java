@@ -2,7 +2,7 @@ package com.mehrdad.falahati.user.service.application.exception.handler;
 
 import com.mehrdad.falahati.system.application.handler.ErrorDto;
 import com.mehrdad.falahati.system.application.handler.GlobalExceptionHandler;
-import com.mehrdad.falahati.user.service.domain.exception.NotFoundException;
+import com.mehrdad.falahati.common.domain.exception.NotFoundException;
 import com.mehrdad.falahati.user.service.domain.exception.UserDomainException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

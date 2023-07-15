@@ -1,7 +1,5 @@
-package com.mehrdad.falahati.user.service.domain.exception;
+package com.mehrdad.falahati.common.domain.exception;
 
-
-import com.mehrdad.falahati.common.domain.exception.DomainException;
 
 public class NotFoundException extends DomainException {
     public NotFoundException(String message) {
