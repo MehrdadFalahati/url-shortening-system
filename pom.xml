@@ -51,6 +51,16 @@
 			</dependency>
 			<dependency>
 				<groupId>com.mehrdad.falahati</groupId>
+				<artifactId>user-application</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mehrdad.falahati</groupId>
+				<artifactId>user-dataaccess</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mehrdad.falahati</groupId>
 				<artifactId>user-security</artifactId>
 				<version>${project.version}</version>
 			</dependency>
