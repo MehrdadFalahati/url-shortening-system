@@ -20,6 +20,7 @@
     <modules>
         <module>user-service</module>
 		<module>common</module>
+		<module>url-shortener-service</module>
 	</modules>
 
     <properties>
