@@ -10,6 +10,7 @@ import com.mehrdad.falahati.url.shortener.service.domain.port.output.repository.
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -19,17 +20,18 @@ import java.util.Optional;
 public class UrlShortenerGetQueryHandler {
 
     private final UrlShortenerMappingRepository urlShortenerMappingRepository;
-    //private final UrlShortenerClickRequestMessagePublisher urlShortenerClickRequestMessagePublisher;
+    private final UrlShortenerClickRequestMessagePublisher urlShortenerClickRequestMessagePublisher;
     private final UrlShortenerDomainService urlShortenerDomainService;
+
     public GetUrlShortenerResponse getUrlShortenerAndPublish(UrlShortenerQuery urlShortenerQuery) {
         Optional<UrlShortenerMapping> urlShortenerMappingOptional = urlShortenerMappingRepository.findByShortUrl(urlShortenerQuery.shortUrl());
         if (urlShortenerMappingOptional.isEmpty()) {
-            log.warn("");
-            throw new NotFoundException("");
+            log.warn("Url shortener {} doesn't exist", urlShortenerQuery.shortUrl());
+            throw new NotFoundException("Url shortener "+ urlShortenerQuery.shortUrl() +" doesn't exist");
         }
         UrlShortenerMapping urlShortenerMapping = urlShortenerMappingOptional.get();
-        //UrlShortenerClickEvent urlShortenerClickEvent = urlShortenerDomainService.initialUrlShortenerClicking(urlShortenerMapping.getUrlShortenerClickingHistory(), urlShortenerMapping, urlShortenerClickRequestMessagePublisher);
-        //urlShortenerClickEvent.fire();
+        UrlShortenerClickEvent urlShortenerClickEvent = urlShortenerDomainService.initialUrlShortenerClicking(urlShortenerMapping, urlShortenerClickRequestMessagePublisher);
+        urlShortenerClickEvent.fire();
         return new GetUrlShortenerResponse(urlShortenerMapping.getOriginalUrl());
     }
 }

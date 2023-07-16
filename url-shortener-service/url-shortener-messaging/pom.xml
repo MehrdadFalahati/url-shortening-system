@@ -5,20 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.mehrdad.falahati</groupId>
-        <artifactId>url-shortening-system</artifactId>
+        <artifactId>url-shortener-service</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>url-shortener-service</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>url-shortener-application</module>
-        <module>url-shortener-container</module>
-        <module>url-shortener-dataaccess</module>
-        <module>url-shortener-domain</module>
-        <module>url-shortener-security</module>
-        <module>url-shortener-messaging</module>
-    </modules>
+    <artifactId>url-shortener-messaging</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -26,4 +17,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.mehrdad.falahati</groupId>
+            <artifactId>url-shortener-application-service</artifactId>
+        </dependency>
+    </dependencies>
 </project>

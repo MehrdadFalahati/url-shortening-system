@@ -8,7 +8,6 @@ import com.mehrdad.falahati.url.shortener.service.domain.event.UrlShortenerClick
 public interface UrlShortenerDomainService {
     void validateAndInitialUrlShortenerMapping(UrlShortenerMapping urlShortenerMapping, String shortUrl, long limitedUrl);
 
-    UrlShortenerClickEvent initialUrlShortenerClicking(UrlShortenerClickingHistory urlShortenerClickingHistory,
-                                                       UrlShortenerMapping urlShortenerMapping,
+    UrlShortenerClickEvent initialUrlShortenerClicking(UrlShortenerMapping urlShortenerMapping,
                                                        DomainEventPublisher<UrlShortenerClickEvent> publisher);
 }

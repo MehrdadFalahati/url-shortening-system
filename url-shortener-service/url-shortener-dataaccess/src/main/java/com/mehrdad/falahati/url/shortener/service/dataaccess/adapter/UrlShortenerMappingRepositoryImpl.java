@@ -3,12 +3,15 @@ package com.mehrdad.falahati.url.shortener.service.dataaccess.adapter;
 import com.mehrdad.falahati.common.domain.valueobject.UserId;
 import com.mehrdad.falahati.url.shortener.service.dataaccess.mapper.UrlShortenerDataAccessMapper;
 import com.mehrdad.falahati.url.shortener.service.dataaccess.repository.UrlShortenerMappingJpaRepository;
+import com.mehrdad.falahati.url.shortener.service.domain.entity.UrlShortenerClickingHistory;
 import com.mehrdad.falahati.url.shortener.service.domain.entity.UrlShortenerMapping;
+import com.mehrdad.falahati.url.shortener.service.domain.objectvalue.UrlShortenerClickingHistoryId;
 import com.mehrdad.falahati.url.shortener.service.domain.objectvalue.UrlShortenerMappingId;
 import com.mehrdad.falahati.url.shortener.service.domain.port.output.repository.UrlShortenerMappingRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.time.ZonedDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -50,5 +53,10 @@ public class UrlShortenerMappingRepositoryImpl implements UrlShortenerMappingRep
     @Override
     public long countByUserId(UserId userId) {
         return urlShortenerMappingJpaRepository.countByUserId(userId.getValue());
+    }
+
+    @Override
+    public void updateModifyAt(UrlShortenerMappingId id, ZonedDateTime modifyAt) {
+        urlShortenerMappingJpaRepository.updateModifyAt(id.getValue(), modifyAt.toInstant());
     }
 }

@@ -7,8 +7,7 @@ import com.mehrdad.falahati.url.shortener.service.domain.entity.UrlShortenerMapp
 
 import java.time.ZonedDateTime;
 
-public record UrlShortenerClickEvent(UrlShortenerClickingHistory urlShortenerClickingHistory,
-                                     UrlShortenerMapping urlShortenerMapping,
+public record UrlShortenerClickEvent(UrlShortenerMapping urlShortenerMapping,
                                      ZonedDateTime createAt,
                                      DomainEventPublisher<UrlShortenerClickEvent> publisher) implements DomainEvent<UrlShortenerClickingHistory> {
     @Override

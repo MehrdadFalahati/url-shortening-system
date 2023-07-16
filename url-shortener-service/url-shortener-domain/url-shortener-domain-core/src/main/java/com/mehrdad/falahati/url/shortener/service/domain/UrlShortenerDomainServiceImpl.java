@@ -19,9 +19,9 @@ public class UrlShortenerDomainServiceImpl implements UrlShortenerDomainService 
     }
 
     @Override
-    public UrlShortenerClickEvent initialUrlShortenerClicking(UrlShortenerClickingHistory urlShortenerClickingHistory, UrlShortenerMapping urlShortenerMapping, DomainEventPublisher<UrlShortenerClickEvent> publisher) {
+    public UrlShortenerClickEvent initialUrlShortenerClicking(UrlShortenerMapping urlShortenerMapping, DomainEventPublisher<UrlShortenerClickEvent> publisher) {
         urlShortenerMapping.updateUrlUsageTime();
         log.info("init url shortener click event");
-        return new UrlShortenerClickEvent(urlShortenerClickingHistory, urlShortenerMapping, ZonedDateTime.now(ZoneId.of("UTC")), publisher);
+        return new UrlShortenerClickEvent(urlShortenerMapping, ZonedDateTime.now(ZoneId.of("UTC")), publisher);
     }
 }
