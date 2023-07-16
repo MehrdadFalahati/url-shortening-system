@@ -6,5 +6,5 @@ import lombok.Builder;
 import java.util.UUID;
 
 @Builder
-public record TrackingUrlShortenerClickingQuery(@NotNull UUID userId, @NotNull String shortUrl) {
+public record TrackingUrlShortenerClickingQuery(@NotNull String shortUrl) {
 }

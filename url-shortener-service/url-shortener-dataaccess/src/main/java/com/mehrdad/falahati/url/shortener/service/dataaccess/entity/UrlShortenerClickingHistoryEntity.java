@@ -12,6 +12,8 @@ import java.util.Objects;
 @AllArgsConstructor
 @Table(name = "us_clicking_history")
 @Entity
+@NamedEntityGraph(name = "urlShortenerMapping",
+        attributeNodes = @NamedAttributeNode("urlShortenerMapping"))
 public class UrlShortenerClickingHistoryEntity {
 
     @Id

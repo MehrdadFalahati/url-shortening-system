@@ -4,11 +4,14 @@ import com.mehrdad.falahati.url.shortener.service.dataaccess.entity.UrlShortener
 
 import java.util.Optional;
 
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface UrlShortenerClickingHistoryJpaRepository extends JpaRepository<UrlShortenerClickingHistoryEntity, Long> {
+
+    @EntityGraph(value = "urlShortenerMapping", type = EntityGraph.EntityGraphType.LOAD)
     Optional<UrlShortenerClickingHistoryEntity> findByUrlShortenerMappingShortUrl(String shortUrl);
 
     @Modifying
