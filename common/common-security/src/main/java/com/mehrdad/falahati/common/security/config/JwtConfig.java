@@ -1,4 +1,4 @@
-package com.mehrdad.falahati.user.service.security.config;
+package com.mehrdad.falahati.common.security.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

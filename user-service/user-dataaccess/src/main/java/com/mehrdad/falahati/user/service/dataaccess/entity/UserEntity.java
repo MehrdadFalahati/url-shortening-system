@@ -1,6 +1,6 @@
 package com.mehrdad.falahati.user.service.dataaccess.entity;
 
-import com.mehrdad.falahati.user.service.domain.entity.Role;
+import com.mehrdad.falahati.common.domain.entity.Role;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;

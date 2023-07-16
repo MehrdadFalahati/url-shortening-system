@@ -1,4 +1,4 @@
-package com.mehrdad.falahati.user.service.domain.entity;
+package com.mehrdad.falahati.common.domain.entity;
 
 public enum Permission {
     URL_WRITE("url:write");

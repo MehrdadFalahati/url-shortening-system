@@ -1,8 +1,8 @@
 package com.mehrdad.falahati.user.service.domain;
 
+import com.mehrdad.falahati.common.domain.dto.user.UserDto;
 import com.mehrdad.falahati.user.service.domain.dto.user.CreateUserCommand;
 import com.mehrdad.falahati.user.service.domain.dto.user.CreateUserResponse;
-import com.mehrdad.falahati.user.service.domain.dto.user.UserDto;
 import com.mehrdad.falahati.user.service.domain.entity.User;
 import com.mehrdad.falahati.common.domain.exception.NotFoundException;
 import com.mehrdad.falahati.user.service.domain.exception.UserDomainException;

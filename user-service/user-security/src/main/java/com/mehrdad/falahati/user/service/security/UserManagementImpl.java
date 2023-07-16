@@ -1,17 +1,17 @@
 package com.mehrdad.falahati.user.service.security;
 
-import com.mehrdad.falahati.user.service.domain.dto.user.UserDto;
+import com.mehrdad.falahati.common.domain.dto.user.UserDto;
+import com.mehrdad.falahati.common.security.UserManagement;
+import com.mehrdad.falahati.common.security.entity.UserSecurityEntity;
 import com.mehrdad.falahati.user.service.domain.port.input.service.UserApplicationService;
-import com.mehrdad.falahati.user.service.security.entity.UserSecurityEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class UserManagement implements UserDetailsService {
+public class UserManagementImpl implements UserManagement {
 
     private final UserApplicationService userApplicationService;
     @Override

@@ -1,8 +1,7 @@
-package com.mehrdad.falahati.user.service.security.entity;
+package com.mehrdad.falahati.common.security.entity;
 
-import com.mehrdad.falahati.user.service.domain.dto.user.UserDto;
-import com.mehrdad.falahati.user.service.domain.entity.Role;
-import com.mehrdad.falahati.user.service.domain.entity.User;
+import com.mehrdad.falahati.common.domain.dto.user.UserDto;
+import com.mehrdad.falahati.common.domain.entity.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

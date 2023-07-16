@@ -1,8 +1,7 @@
-package com.mehrdad.falahati.user.service.security.util;
+package com.mehrdad.falahati.common.security.util;
 
-import com.mehrdad.falahati.user.service.domain.dto.user.UserDto;
-import com.mehrdad.falahati.user.service.domain.entity.User;
-import com.mehrdad.falahati.user.service.security.config.JwtConfig;
+import com.mehrdad.falahati.common.domain.dto.user.UserDto;
+import com.mehrdad.falahati.common.security.config.JwtConfig;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;

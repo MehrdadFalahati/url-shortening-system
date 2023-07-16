@@ -2,6 +2,7 @@ package com.mehrdad.falahati.user.service.domain.entity;
 
 
 import com.mehrdad.falahati.common.domain.entity.AggregateRoot;
+import com.mehrdad.falahati.common.domain.entity.Role;
 import com.mehrdad.falahati.common.domain.valueobject.UserId;
 
 import java.util.UUID;

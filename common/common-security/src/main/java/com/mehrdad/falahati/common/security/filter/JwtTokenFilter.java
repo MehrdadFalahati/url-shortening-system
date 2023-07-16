@@ -1,7 +1,7 @@
-package com.mehrdad.falahati.user.service.security.filter;
+package com.mehrdad.falahati.common.security.filter;
 
-import com.mehrdad.falahati.user.service.security.UserManagement;
-import com.mehrdad.falahati.user.service.security.util.JwtTokenUtil;
+import com.mehrdad.falahati.common.security.UserManagement;
+import com.mehrdad.falahati.common.security.util.JwtTokenUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

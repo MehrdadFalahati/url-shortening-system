@@ -1,7 +1,7 @@
 package com.mehrdad.falahati.user.service.domain.mapper;
 
+import com.mehrdad.falahati.common.domain.dto.user.UserDto;
 import com.mehrdad.falahati.user.service.domain.dto.user.CreateUserCommand;
-import com.mehrdad.falahati.user.service.domain.dto.user.UserDto;
 import com.mehrdad.falahati.user.service.domain.entity.User;
 import org.springframework.stereotype.Component;
 

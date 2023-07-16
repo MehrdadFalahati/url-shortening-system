@@ -1,6 +1,6 @@
-package com.mehrdad.falahati.user.service.domain.dto.user;
+package com.mehrdad.falahati.common.domain.dto.user;
 
-import com.mehrdad.falahati.user.service.domain.entity.Role;
+import com.mehrdad.falahati.common.domain.entity.Role;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 

@@ -1,8 +1,8 @@
 package com.mehrdad.falahati.user.service.application;
 
-import com.mehrdad.falahati.user.service.domain.dto.user.UserDto;
+import com.mehrdad.falahati.common.domain.dto.user.UserDto;
+import com.mehrdad.falahati.common.security.util.JwtTokenUtil;
 import com.mehrdad.falahati.user.service.domain.exception.UserDomainException;
-import com.mehrdad.falahati.user.service.security.util.JwtTokenUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
