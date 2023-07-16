@@ -1,4 +1,8 @@
 package com.mehrdad.falahati.url.shortener.service.domain.dto;
 
-public class CreateUrlShortenerCommand {
+import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
+
+@Builder
+public record CreateUrlShortenerCommand(@NotNull String url) {
 }

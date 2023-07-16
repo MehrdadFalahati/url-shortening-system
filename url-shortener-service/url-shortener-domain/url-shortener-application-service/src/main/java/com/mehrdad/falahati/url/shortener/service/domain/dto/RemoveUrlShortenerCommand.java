@@ -1,4 +1,8 @@
 package com.mehrdad.falahati.url.shortener.service.domain.dto;
 
-public class RemoveUrlShortenerCommand {
+import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
+
+@Builder
+public record RemoveUrlShortenerCommand(@NotNull String shortUrl) {
 }
