@@ -1,7 +1,8 @@
 package com.mehrdad.falahati.common.domain.entity;
 
 public enum Permission {
-    URL_WRITE("url:write");
+    URL_WRITE("url:write"),
+    TRACKING_READ("tracking:read");
 
     private final String permissionName;
 

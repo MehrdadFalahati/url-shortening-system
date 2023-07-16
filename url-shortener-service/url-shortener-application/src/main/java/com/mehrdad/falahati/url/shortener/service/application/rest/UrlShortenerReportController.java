@@ -5,6 +5,7 @@ import com.mehrdad.falahati.url.shortener.service.domain.dto.TrackingUrlShortene
 import com.mehrdad.falahati.url.shortener.service.domain.port.input.service.UrlShortenerApplicationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ public class UrlShortenerReportController {
     private final UrlShortenerApplicationService urlShortenerApplicationService;
 
     @GetMapping("/{shortUrl}")
+    @PreAuthorize("hasAnyAuthority('tracking:read')")
     public ResponseEntity<TrackingUrlShortenerClickingResponse> getReport(@PathVariable String shortUrl) {
         return ResponseEntity.ok(urlShortenerApplicationService.getClickingCount(new TrackingUrlShortenerClickingQuery(shortUrl)));
     }

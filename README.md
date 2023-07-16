@@ -52,8 +52,13 @@ CREATE trigger refresh_url_shortener_user_m_view
 after INSERT OR UPDATE OR DELETE OR truncate
 ON us_user.users FOR each statement
 EXECUTE PROCEDURE us_user.refresh_url_shortener_user_m_view();
-``` 
+```
+
+## Run
+Both of services have `container` module that can start applications in this module.
+
 
 ## Swagger
 Dashboard swagger for user service is : http://localhost:8686/swagger-ui/index.html
+
 Dashboard swagger for url shortener service is : http://localhost:8687/swagger-ui/index.html

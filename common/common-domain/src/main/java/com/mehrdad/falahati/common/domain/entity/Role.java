@@ -7,7 +7,7 @@ import static com.mehrdad.falahati.common.domain.entity.Permission.*;
 
 
 public enum Role {
-    USER(Set.of(URL_WRITE));
+    USER(Set.of(URL_WRITE, TRACKING_READ));
 
     private final Set<Permission> permissions;
 

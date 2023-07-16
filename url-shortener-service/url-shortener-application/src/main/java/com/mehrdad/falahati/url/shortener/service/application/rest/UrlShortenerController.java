@@ -13,6 +13,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +26,7 @@ public class UrlShortenerController {
     private final UrlShortenerApplicationService urlShortenerApplicationService;
 
     @PostMapping
+    @PreAuthorize("hasAnyAuthority('url:write')")
     public ResponseEntity<CreateUrlShortenerResponse> create(@Valid @RequestBody CreateUrlShortenerCommandDto urlShortenerCommand) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(urlShortenerApplicationService.createUrlShortener(new CreateUrlShortenerCommand(SecurityContextUtil.getUsername(),
@@ -43,6 +45,7 @@ public class UrlShortenerController {
     }
 
     @DeleteMapping("/{shortUrl}")
+    @PreAuthorize("hasAnyAuthority('url:write')")
     public ResponseEntity<Void> removerUrlShortener(@PathVariable String shortUrl) {
         urlShortenerApplicationService.removeUrlShortener(new RemoveUrlShortenerCommand(SecurityContextUtil.getUsername(), shortUrl));
         return ResponseEntity.ok().build();
