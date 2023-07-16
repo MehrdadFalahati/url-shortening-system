@@ -95,6 +95,11 @@
 				<artifactId>url-shortener-application</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.mehrdad.falahati</groupId>
+				<artifactId>url-shortener-security</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 

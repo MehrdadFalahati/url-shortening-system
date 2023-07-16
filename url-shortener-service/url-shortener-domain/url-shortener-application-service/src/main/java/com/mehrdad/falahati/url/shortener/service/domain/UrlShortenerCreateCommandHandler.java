@@ -40,7 +40,7 @@ public class UrlShortenerCreateCommandHandler {
         UrlShortenerMapping result = urlShortenerMappingRepository.save(urlShortenerMapping);
         log.info("UrlShortener is created with id: {}", result.getId());
         urlShortenerClickingHistoryRepository.save(urlShortenerDataMapper.urlShortenerMappingToUrlShortenerClickingHistory(result));
-        return new UrlShortenerResponse(result.getId().getValue(), result.getShortUrl());
+        return new UrlShortenerResponse(result.getId().getValue(), randomShortUrlGenerator.convertShortUrl(result.getShortUrl()));
     }
 
     private void checkUser(UUID userId) {
