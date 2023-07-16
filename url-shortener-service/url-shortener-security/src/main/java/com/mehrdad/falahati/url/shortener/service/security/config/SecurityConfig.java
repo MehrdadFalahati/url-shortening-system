@@ -1,7 +1,7 @@
 package com.mehrdad.falahati.url.shortener.service.security.config;
 
 import com.mehrdad.falahati.common.security.config.AbstractSecurityConfig;
-import com.mehrdad.falahati.common.security.filter.JwtTokenFilter;
+import com.mehrdad.falahati.common.security.filter.SecurityFilter;
 import com.mehrdad.falahati.url.shortener.service.security.UserManagementImpl;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig extends AbstractSecurityConfig {
 
     private final UserManagementImpl userManagement;
-    private final JwtTokenFilter jwtTokenFilter;
+    private final SecurityFilter securityFilter;
 
     @PostConstruct
     public void init() {
@@ -46,7 +46,7 @@ public class SecurityConfig extends AbstractSecurityConfig {
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authenticationProvider(daoAuthenticationProvider())
-                .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 }

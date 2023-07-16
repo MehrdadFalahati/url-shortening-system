@@ -21,7 +21,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class JwtTokenFilter extends OncePerRequestFilter {
+public class SecurityFilter extends OncePerRequestFilter {
 
     private final JwtTokenUtil jwtTokenUtil;
     private final UserManagement userManagement;

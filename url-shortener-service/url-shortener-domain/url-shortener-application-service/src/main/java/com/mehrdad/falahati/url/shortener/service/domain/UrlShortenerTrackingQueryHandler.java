@@ -17,6 +17,6 @@ public class UrlShortenerTrackingQueryHandler {
     public TrackingUrlShortenerClickingResponse countClicking(TrackingUrlShortenerClickingQuery trackingUrlShortenerClickingQuery) {
         return urlShortenerClickingHistoryRepository.findByUrlShortenerMappingShortUrl(trackingUrlShortenerClickingQuery.shortUrl())
                 .map(urlShortenerDataMapper::urlShortenerClickingHistoryToTracking)
-                .orElseThrow(() -> new NotFoundException(""));
+                .orElseThrow(() -> new NotFoundException("Url[short=" + trackingUrlShortenerClickingQuery.shortUrl() +"] not found!"));
     }
 }

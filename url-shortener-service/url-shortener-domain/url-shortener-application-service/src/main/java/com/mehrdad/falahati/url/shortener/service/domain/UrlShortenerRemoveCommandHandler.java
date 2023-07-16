@@ -27,14 +27,14 @@ public class UrlShortenerRemoveCommandHandler {
     public void deleteUrlShortener(RemoveUrlShortenerCommand urlShortenerCommand) {
         Optional<User> userOptional = userRepository.findByUsername(urlShortenerCommand.username());
         if (userOptional.isEmpty()) {
-            log.warn("");
-            throw new NotFoundException("");
+            log.warn("User not found User[username={}]", urlShortenerCommand.username());
+            throw new NotFoundException("User not found User[username=" + urlShortenerCommand.username() + "]");
         }
         User user = userOptional.get();
         Optional<UrlShortenerMapping> urlShortenerMappingOptional = urlShortenerMappingRepository.findByShortUrlAndUserId(urlShortenerCommand.shortUrl(), user.getId().getValue());
         if (urlShortenerMappingOptional.isEmpty()) {
-            log.error("");
-            throw new NotFoundException("");
+            log.error("This url is not match with user");
+            throw new UrlShortenerDomainException("This url is not match with user");
         }
         urlShortenerMappingRepository.deleteById(urlShortenerMappingOptional.get().getId());
     }

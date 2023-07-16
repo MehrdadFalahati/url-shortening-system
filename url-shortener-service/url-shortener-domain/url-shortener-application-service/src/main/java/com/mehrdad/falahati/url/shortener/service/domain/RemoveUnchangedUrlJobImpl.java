@@ -1,7 +1,7 @@
 package com.mehrdad.falahati.url.shortener.service.domain;
 
 import com.mehrdad.falahati.url.shortener.service.domain.entity.UrlShortenerMapping;
-import com.mehrdad.falahati.url.shortener.service.domain.port.input.job.DiActiveUrlRemover;
+import com.mehrdad.falahati.url.shortener.service.domain.port.input.job.RemoveUnchangedUrlJob;
 import com.mehrdad.falahati.url.shortener.service.domain.port.output.repository.UrlShortenerClickingHistoryRepository;
 import com.mehrdad.falahati.url.shortener.service.domain.port.output.repository.UrlShortenerMappingRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ import java.util.List;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class DiActiveUrlRemoverImpl implements DiActiveUrlRemover {
+public class RemoveUnchangedUrlJobImpl implements RemoveUnchangedUrlJob {
     private final UrlShortenerClickingHistoryRepository urlShortenerClickingHistoryRepository;
     private final UrlShortenerMappingRepository urlShortenerMappingRepository;
 
@@ -28,6 +28,6 @@ public class DiActiveUrlRemoverImpl implements DiActiveUrlRemover {
         urlShortenerClickingHistoryRepository.deleteAll(urlShortenerMappings.stream()
                 .map(UrlShortenerMapping::getUrlShortenerClickingHistory).toList());
         urlShortenerMappingRepository.deleteAll(urlShortenerMappings);
-        log.info("remove diActive urls");
+        log.info("remove unchanged date urls");
     }
 }

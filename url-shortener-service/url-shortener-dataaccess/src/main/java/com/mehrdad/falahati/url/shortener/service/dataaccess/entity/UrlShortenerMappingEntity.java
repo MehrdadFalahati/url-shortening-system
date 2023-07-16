@@ -24,6 +24,7 @@ public class UrlShortenerMappingEntity {
 
     private UUID userId;
     private String originalUrl;
+    @Column(unique = true)
     private String shortUrl;
     @Temporal(TemporalType.TIMESTAMP)
     private Instant createAt;

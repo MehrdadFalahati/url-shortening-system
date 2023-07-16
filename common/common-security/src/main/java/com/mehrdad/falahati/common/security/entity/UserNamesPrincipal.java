@@ -10,14 +10,14 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class UserSecurityEntity implements UserDetails {
+public class UserNamesPrincipal implements UserDetails {
 
     private final String username;
     private final String password;
     private final boolean isEnabled;
     private final Collection<? extends GrantedAuthority> authorities;
 
-    public UserSecurityEntity(UserDto user) {
+    public UserNamesPrincipal(UserDto user) {
         this.username = user.username();
         this.password = user.password();
         this.isEnabled = user.isEnable();

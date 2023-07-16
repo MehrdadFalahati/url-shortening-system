@@ -1,6 +1,6 @@
 package com.mehrdad.falahati.url.shortener.service.job;
 
-import com.mehrdad.falahati.url.shortener.service.domain.port.input.job.DiActiveUrlRemover;
+import com.mehrdad.falahati.url.shortener.service.domain.port.input.job.RemoveUnchangedUrlJob;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -11,11 +11,11 @@ import org.springframework.stereotype.Component;
 @Component
 @EnableScheduling
 @RequiredArgsConstructor
-public class UrlShortenerRemoveDiActiveUrlJob {
-    private final DiActiveUrlRemover diActiveUrlRemover;
+public class UrlShortenerRemoveUnchangedUrlJob {
+    private final RemoveUnchangedUrlJob removeUnchangedUrlJob;
 
     @Scheduled(cron = "${app.scheduled.time}")
     void execute() {
-        diActiveUrlRemover.removeDiActiveUrl();
+        removeUnchangedUrlJob.removeDiActiveUrl();
     }
 }

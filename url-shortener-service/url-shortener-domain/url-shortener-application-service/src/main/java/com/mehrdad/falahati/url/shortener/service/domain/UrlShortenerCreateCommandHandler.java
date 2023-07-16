@@ -31,9 +31,9 @@ public class UrlShortenerCreateCommandHandler {
 
     @Transactional
     public CreateUrlShortenerResponse persistUrlShortener(CreateUrlShortenerCommand urlShortenerCommand) {
-        checkUser(urlShortenerCommand.userId());
-        var urlShortenerMapping = urlShortenerDataMapper.createUrlShortenerCommandToUrlShortenerMapping(urlShortenerCommand);
-        var limitedCountUrlAdding = urlShortenerMappingRepository.countByUserId(new UserId(urlShortenerCommand.userId()));
+        var user = checkUser(urlShortenerCommand.username());
+        var urlShortenerMapping = urlShortenerDataMapper.createUrlShortenerCommandToUrlShortenerMapping(urlShortenerCommand, user.getId().getValue());
+        var limitedCountUrlAdding = urlShortenerMappingRepository.countByUserId(new UserId(user.getId().getValue()));
         urlShortenerDomainService.validateAndInitialUrlShortenerMapping(urlShortenerMapping,
                 randomShortUrlGenerator.generateShortUrl(), limitedCountUrlAdding);
         UrlShortenerClickingHistory urlShortenerClickingHistory = urlShortenerDataMapper.urlShortenerMappingToUrlShortenerClickingHistory(urlShortenerMapping);
@@ -43,11 +43,12 @@ public class UrlShortenerCreateCommandHandler {
         return new CreateUrlShortenerResponse(result.getId().getValue(), randomShortUrlGenerator.convertShortUrl(result.getShortUrl()));
     }
 
-    private void checkUser(UUID userId) {
-        Optional<User> customer = userRepository.findById(new UserId(userId));
-        if (customer.isEmpty()) {
-            log.warn("Could not find user with user id: {}", userId);
-            throw new UrlShortenerDomainException("Could not find user with user id: " + userId);
+    private User checkUser(String username) {
+        Optional<User> user = userRepository.findByUsername(username);
+        if (user.isEmpty()) {
+            log.warn("Could not find user with user username: {}", username);
+            throw new UrlShortenerDomainException("Could not find user with user username: " + username);
         }
+        return user.get();
     }
 }

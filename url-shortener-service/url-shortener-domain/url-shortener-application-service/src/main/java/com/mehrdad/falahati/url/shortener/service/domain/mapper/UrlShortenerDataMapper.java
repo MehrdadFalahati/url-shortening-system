@@ -7,12 +7,14 @@ import com.mehrdad.falahati.url.shortener.service.domain.entity.UrlShortenerClic
 import com.mehrdad.falahati.url.shortener.service.domain.entity.UrlShortenerMapping;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 @Component
 public class UrlShortenerDataMapper {
 
-    public UrlShortenerMapping createUrlShortenerCommandToUrlShortenerMapping(CreateUrlShortenerCommand createUrlShortenerCommand) {
+    public UrlShortenerMapping createUrlShortenerCommandToUrlShortenerMapping(CreateUrlShortenerCommand createUrlShortenerCommand, UUID userId) {
         return UrlShortenerMapping.builder()
-                .userId(new UserId(createUrlShortenerCommand.userId()))
+                .userId(new UserId(userId))
                 .originalUrl(createUrlShortenerCommand.url())
                 .build();
     }
