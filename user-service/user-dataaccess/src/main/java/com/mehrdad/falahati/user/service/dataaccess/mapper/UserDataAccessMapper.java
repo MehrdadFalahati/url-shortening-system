@@ -32,6 +32,8 @@ public class UserDataAccessMapper {
                 .firstName(userEntity.getFirstName())
                 .lastName(userEntity.getLastName())
                 .phoneNumber(userEntity.getPhoneNumber())
+                .isEnabled(userEntity.getIsEnabled())
+                .role(userEntity.getRole())
                 .build();
     }
 }

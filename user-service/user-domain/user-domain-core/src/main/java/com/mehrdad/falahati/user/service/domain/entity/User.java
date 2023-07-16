@@ -29,6 +29,8 @@ public class User extends AggregateRoot<UserId> {
         username = builder.username;
         password = builder.password;
         phoneNumber = builder.phoneNumber;
+        role = builder.role;
+        isEnabled = builder.isEnable;
     }
 
     public static Builder builder() {
@@ -70,6 +72,8 @@ public class User extends AggregateRoot<UserId> {
         private String username;
         private String password;
         private String phoneNumber;
+        private boolean isEnable;
+        private Role role;
         private Builder() {
         }
 
@@ -100,6 +104,16 @@ public class User extends AggregateRoot<UserId> {
 
         public Builder phoneNumber(String val) {
             phoneNumber = val;
+            return this;
+        }
+
+        public Builder isEnabled(boolean val) {
+            isEnable = val;
+            return this;
+        }
+
+        public Builder role(Role val) {
+            role = val;
             return this;
         }
 

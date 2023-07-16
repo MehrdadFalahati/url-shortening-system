@@ -18,7 +18,7 @@ public class UrlShortenerDataMapper {
 
     public UrlShortenerClickingHistory urlShortenerMappingToUrlShortenerClickingHistory(UrlShortenerMapping urlShortenerMapping) {
         return UrlShortenerClickingHistory.builder()
-                .urlMappingId(urlShortenerMapping.getId())
+                .urlShortenerMapping(urlShortenerMapping)
                 .clickCounter(0)
                 .build();
     }

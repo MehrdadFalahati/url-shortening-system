@@ -1,4 +1,4 @@
-package com.mehrdad.falahati.user.service.dataaccess.entity;
+package com.mehrdad.falahati.url.shortener.service.dataaccess.entity;
 
 import com.mehrdad.falahati.common.domain.entity.Role;
 import jakarta.persistence.*;
@@ -12,17 +12,13 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
+@Table(name = "url_shortener_user_m_view", schema = "us_user")
 @Entity
 public class UserEntity {
-
     @Id
     private UUID id;
     private String username;
     private String password;
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -46,10 +42,6 @@ public class UserEntity {
     public String toString() {
         return "UserEntity{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
+                ", username='" + username + '\'' + '}';
     }
 }

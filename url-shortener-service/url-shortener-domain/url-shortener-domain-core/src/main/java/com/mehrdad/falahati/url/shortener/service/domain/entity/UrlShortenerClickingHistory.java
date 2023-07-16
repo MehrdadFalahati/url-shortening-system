@@ -2,21 +2,20 @@ package com.mehrdad.falahati.url.shortener.service.domain.entity;
 
 import com.mehrdad.falahati.common.domain.entity.BaseEntity;
 import com.mehrdad.falahati.url.shortener.service.domain.objectvalue.UrlShortenerClickingHistoryId;
-import com.mehrdad.falahati.url.shortener.service.domain.objectvalue.UrlShortenerMappingId;
 
 public class UrlShortenerClickingHistory extends BaseEntity<UrlShortenerClickingHistoryId> {
 
-    private final UrlShortenerMappingId urlShortenerMappingId;
+    private final UrlShortenerMapping urlShortenerMapping;
     private final long clickCounter;
 
     private UrlShortenerClickingHistory(Builder builder) {
         setId(builder.id);
-        urlShortenerMappingId = builder.urlShortenerMappingId;
+        urlShortenerMapping = builder.urlShortenerMapping;
         clickCounter = builder.clickCounter;
     }
 
-    public UrlShortenerMappingId getUrlMappingId() {
-        return urlShortenerMappingId;
+    public UrlShortenerMapping getUrlShortenerMapping() {
+        return urlShortenerMapping;
     }
 
     public long getClickCounter() {
@@ -29,7 +28,7 @@ public class UrlShortenerClickingHistory extends BaseEntity<UrlShortenerClicking
 
     public static final class Builder {
         private UrlShortenerClickingHistoryId id;
-        private UrlShortenerMappingId urlShortenerMappingId;
+        private UrlShortenerMapping urlShortenerMapping;
         private long clickCounter;
 
         private Builder() {
@@ -40,8 +39,8 @@ public class UrlShortenerClickingHistory extends BaseEntity<UrlShortenerClicking
             return this;
         }
 
-        public Builder urlMappingId(UrlShortenerMappingId val) {
-            urlShortenerMappingId = val;
+        public Builder urlShortenerMapping(UrlShortenerMapping val) {
+            urlShortenerMapping = val;
             return this;
         }
 
