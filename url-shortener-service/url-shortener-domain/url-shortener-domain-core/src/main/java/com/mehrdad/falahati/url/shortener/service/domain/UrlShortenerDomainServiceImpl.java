@@ -11,9 +11,9 @@ import java.time.ZonedDateTime;
 @Slf4j
 public class UrlShortenerDomainServiceImpl implements UrlShortenerDomainService {
     @Override
-    public void validateAndInitialUrlShortenerMapping(UrlShortenerMapping urlShortenerMapping, long limitedUrl) {
+    public void validateAndInitialUrlShortenerMapping(UrlShortenerMapping urlShortenerMapping, String shortUrl, long limitedUrl) {
         urlShortenerMapping.validateUrlShortener(limitedUrl);
-        urlShortenerMapping.initialUrlShortenerMapping();
+        urlShortenerMapping.initialUrlShortenerMapping(shortUrl);
         log.info("Url shortener with id={} init successfully", urlShortenerMapping.getId());
     }
 

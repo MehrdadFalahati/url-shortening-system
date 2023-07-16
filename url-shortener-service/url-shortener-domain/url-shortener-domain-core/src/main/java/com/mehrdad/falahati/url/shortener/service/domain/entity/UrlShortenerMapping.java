@@ -11,13 +11,14 @@ import java.time.ZonedDateTime;
 public class UrlShortenerMapping extends AggregateRoot<UrlShortenerMappingId> {
     private final UserId userId;
     private final String originalUrl;
-    private final String shortUrl;
+    private String shortUrl;
     private ZonedDateTime createAt;
     private ZonedDateTime modifyAt;
 
-    public void initialUrlShortenerMapping() {
+    public void initialUrlShortenerMapping(String shortUrl) {
         this.createAt = ZonedDateTime.now(ZoneId.of("UTC"));
         this.modifyAt = ZonedDateTime.now(ZoneId.of("UTC"));
+        this.shortUrl = shortUrl;
     }
 
     public void validateUrlShortener(long limitedUrl) {

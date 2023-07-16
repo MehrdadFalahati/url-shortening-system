@@ -13,9 +13,11 @@ import org.springframework.validation.annotation.Validated;
 @RequiredArgsConstructor
 public class UrlShortenerApplicationServiceImpl implements UrlShortenerApplicationService {
 
+    private final UrlShortenerCreateCommandHandler urlShortenerCreateCommandHandler;
+
     @Override
     public UrlShortenerResponse createUrlShortener(CreateUrlShortenerCommand urlShortenerCommand) {
-        return null;
+        return urlShortenerCreateCommandHandler.persistUrlShortener(urlShortenerCommand);
     }
 
     @Override

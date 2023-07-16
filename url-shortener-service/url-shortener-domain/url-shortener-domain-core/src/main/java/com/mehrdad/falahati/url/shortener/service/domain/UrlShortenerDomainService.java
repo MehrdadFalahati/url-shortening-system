@@ -5,7 +5,7 @@ import com.mehrdad.falahati.url.shortener.service.domain.entity.UrlShortenerMapp
 import com.mehrdad.falahati.url.shortener.service.domain.event.UrlShortenerClickEvent;
 
 public interface UrlShortenerDomainService {
-    void validateAndInitialUrlShortenerMapping(UrlShortenerMapping urlShortenerMapping, long limitedUrl);
+    void validateAndInitialUrlShortenerMapping(UrlShortenerMapping urlShortenerMapping, String shortUrl, long limitedUrl);
 
     UrlShortenerClickEvent initialUrlShortenerClicking(UrlShortenerClickingHistory urlShortenerClickingHistory,
                                                        UrlShortenerMapping urlShortenerMapping);
