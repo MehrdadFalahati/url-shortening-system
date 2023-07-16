@@ -102,6 +102,11 @@
 			</dependency>
 			<dependency>
 				<groupId>com.mehrdad.falahati</groupId>
+				<artifactId>url-shortener-job</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mehrdad.falahati</groupId>
 				<artifactId>url-shortener-security</artifactId>
 				<version>${project.version}</version>
 			</dependency>

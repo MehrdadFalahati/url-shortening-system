@@ -22,6 +22,7 @@ public class UrlShortenerDataAccessMapper {
                 .shortUrl(entity.getShortUrl())
                 .createAt(entity.getCreateAt().atZone(ZoneId.of("UTC")))
                 .modifyAt(entity.getModifyAt().atZone(ZoneId.of("UTC")))
+                .urlShortenerClickingHistory(entity.getUrlShortenerClickingHistory() == null ? null : entityToUrlShortenerClickingHistoryWithId(entity.getUrlShortenerClickingHistory()))
                 .build();
     }
 
@@ -38,9 +39,16 @@ public class UrlShortenerDataAccessMapper {
         return entity;
     }
 
-    public UrlShortenerClickingHistoryEntity urlShortenerClickingHistory(UrlShortenerClickingHistory urlShortenerClickingHistory) {
+    private UrlShortenerClickingHistoryEntity urlShortenerClickingHistory(UrlShortenerClickingHistory urlShortenerClickingHistory) {
         return UrlShortenerClickingHistoryEntity.builder()
                 .clickingCounter(urlShortenerClickingHistory.getClickCounter())
+                .build();
+    }
+
+    private UrlShortenerClickingHistory entityToUrlShortenerClickingHistoryWithId(UrlShortenerClickingHistoryEntity entity) {
+        return UrlShortenerClickingHistory.builder()
+                .id(new UrlShortenerClickingHistoryId(entity.getId()))
+                .clickCounter(entity.getClickingCounter())
                 .build();
     }
 

@@ -35,7 +35,7 @@ public class SecurityConfig extends AbstractSecurityConfig {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers(HttpMethod.GET, "/**")
+                .requestMatchers(HttpMethod.GET, "/*")
                 .permitAll()
                 .requestMatchers("/api-docs/**", "/swagger-ui/**")
                 .permitAll()

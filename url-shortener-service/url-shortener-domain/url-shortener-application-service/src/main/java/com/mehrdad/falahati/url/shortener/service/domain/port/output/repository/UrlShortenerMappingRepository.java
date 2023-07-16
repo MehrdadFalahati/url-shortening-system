@@ -5,6 +5,7 @@ import com.mehrdad.falahati.url.shortener.service.domain.entity.UrlShortenerMapp
 import com.mehrdad.falahati.url.shortener.service.domain.objectvalue.UrlShortenerMappingId;
 
 import java.time.ZonedDateTime;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -16,4 +17,6 @@ public interface UrlShortenerMappingRepository {
     void deleteById(UrlShortenerMappingId id);
     long countByUserId(UserId userId);
     void updateModifyAt(UrlShortenerMappingId id, ZonedDateTime modifyAt);
+    List<UrlShortenerMapping> findUnchangedDataInYear(ZonedDateTime start);
+    void deleteAll(List<UrlShortenerMapping> urlShortenerMappings);
 }

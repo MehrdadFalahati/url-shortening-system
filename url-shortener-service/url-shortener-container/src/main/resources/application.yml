@@ -9,6 +9,8 @@ app:
   jwt:
     jwt-secret: securesecuresecuresecuresecuresecuresecuresecuresecuresecuresecure
     jwt-issuer: io.example
+  scheduled:
+    time: 0 15 10 15 * ?
 
 springdoc:
   api-docs:

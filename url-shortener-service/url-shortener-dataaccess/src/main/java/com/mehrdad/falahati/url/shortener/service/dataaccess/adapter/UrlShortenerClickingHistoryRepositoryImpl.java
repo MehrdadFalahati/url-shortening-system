@@ -8,6 +8,7 @@ import com.mehrdad.falahati.url.shortener.service.domain.port.output.repository.
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -31,5 +32,11 @@ public class UrlShortenerClickingHistoryRepositoryImpl implements UrlShortenerCl
     @Override
     public void updateClickingCounter(UrlShortenerClickingHistoryId id) {
         urlShortenerClickingHistoryJpaRepository.updateClickingCounter(id.getValue());
+    }
+
+    @Override
+    public void deleteAll(List<UrlShortenerClickingHistory> urlShortenerClickingHistories) {
+        urlShortenerClickingHistoryJpaRepository.deleteAllByIdInBatch(urlShortenerClickingHistories.stream()
+                .map(u -> u.getId().getValue()).toList());
     }
 }

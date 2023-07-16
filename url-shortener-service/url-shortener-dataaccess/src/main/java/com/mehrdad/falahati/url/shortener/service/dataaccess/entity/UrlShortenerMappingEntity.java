@@ -14,6 +14,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @Table(name = "us_mapping")
 @Entity
+@NamedEntityGraph(name = "urlShortenerClickingHistory",
+        attributeNodes = @NamedAttributeNode("urlShortenerClickingHistory"))
 public class UrlShortenerMappingEntity {
 
     @Id

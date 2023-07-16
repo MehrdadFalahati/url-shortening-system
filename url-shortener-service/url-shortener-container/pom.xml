@@ -43,6 +43,10 @@
             <artifactId>url-shortener-messaging</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.mehrdad.falahati</groupId>
+            <artifactId>url-shortener-job</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
