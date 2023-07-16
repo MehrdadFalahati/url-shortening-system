@@ -1,5 +1,6 @@
 package com.mehrdad.falahati.url.shortener.service.domain;
 
+import com.mehrdad.falahati.common.domain.event.publisher.DomainEventPublisher;
 import com.mehrdad.falahati.url.shortener.service.domain.entity.UrlShortenerClickingHistory;
 import com.mehrdad.falahati.url.shortener.service.domain.entity.UrlShortenerMapping;
 import com.mehrdad.falahati.url.shortener.service.domain.event.UrlShortenerClickEvent;
@@ -18,9 +19,9 @@ public class UrlShortenerDomainServiceImpl implements UrlShortenerDomainService 
     }
 
     @Override
-    public UrlShortenerClickEvent initialUrlShortenerClicking(UrlShortenerClickingHistory urlShortenerClickingHistory, UrlShortenerMapping urlShortenerMapping) {
+    public UrlShortenerClickEvent initialUrlShortenerClicking(UrlShortenerClickingHistory urlShortenerClickingHistory, UrlShortenerMapping urlShortenerMapping, DomainEventPublisher<UrlShortenerClickEvent> publisher) {
         urlShortenerMapping.updateUrlUsageTime();
         log.info("init url shortener click event");
-        return new UrlShortenerClickEvent(urlShortenerClickingHistory, urlShortenerMapping, ZonedDateTime.now(ZoneId.of("UTC")));
+        return new UrlShortenerClickEvent(urlShortenerClickingHistory, urlShortenerMapping, ZonedDateTime.now(ZoneId.of("UTC")), publisher);
     }
 }

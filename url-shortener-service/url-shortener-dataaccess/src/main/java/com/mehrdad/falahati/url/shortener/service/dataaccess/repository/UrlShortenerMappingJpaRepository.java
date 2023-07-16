@@ -11,4 +11,6 @@ public interface UrlShortenerMappingJpaRepository extends JpaRepository<UrlShort
     Boolean existsByShortUrl(String shortUrl);
     Optional<UrlShortenerMappingEntity> findByShortUrl(String shortUrl);
     long countByUserId(UUID userId);
+
+    Optional<UrlShortenerMappingEntity> findByShortUrlAndUserId(String shortUrl, UUID userId);
 }

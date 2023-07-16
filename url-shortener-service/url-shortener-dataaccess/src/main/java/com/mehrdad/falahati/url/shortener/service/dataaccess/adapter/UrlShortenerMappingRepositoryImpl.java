@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Component
 @RequiredArgsConstructor
@@ -32,6 +33,12 @@ public class UrlShortenerMappingRepositoryImpl implements UrlShortenerMappingRep
     @Override
     public Optional<UrlShortenerMapping> findByShortUrl(String shortUrl) {
         return urlShortenerMappingJpaRepository.findByShortUrl(shortUrl)
+                .map(urlShortenerDataAccessMapper::entityToUrlShortenerMapping);
+    }
+
+    @Override
+    public Optional<UrlShortenerMapping> findByShortUrlAndUserId(String shortUrl, UUID userId) {
+        return urlShortenerMappingJpaRepository.findByShortUrlAndUserId(shortUrl, userId)
                 .map(urlShortenerDataAccessMapper::entityToUrlShortenerMapping);
     }
 

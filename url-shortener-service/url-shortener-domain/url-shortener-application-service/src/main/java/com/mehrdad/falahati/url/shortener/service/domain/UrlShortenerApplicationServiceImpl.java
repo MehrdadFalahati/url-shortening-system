@@ -14,24 +14,27 @@ import org.springframework.validation.annotation.Validated;
 public class UrlShortenerApplicationServiceImpl implements UrlShortenerApplicationService {
 
     private final UrlShortenerCreateCommandHandler urlShortenerCreateCommandHandler;
+    private final UrlShortenerRemoveCommandHandler urlShortenerRemoveCommandHandler;
+    private final UrlShortenerGetQueryHandler urlShortenerGetQueryHandler;
+    private final UrlShortenerTrackingQueryHandler urlShortenerTrackingQueryHandler;
 
     @Override
-    public UrlShortenerResponse createUrlShortener(CreateUrlShortenerCommand urlShortenerCommand) {
+    public CreateUrlShortenerResponse createUrlShortener(CreateUrlShortenerCommand urlShortenerCommand) {
         return urlShortenerCreateCommandHandler.persistUrlShortener(urlShortenerCommand);
     }
 
     @Override
     public void removeUrlShortener(RemoveUrlShortenerCommand urlShortenerCommand) {
-
+        urlShortenerRemoveCommandHandler.deleteUrlShortener(urlShortenerCommand);
     }
 
     @Override
-    public UrlShortenerResponse getUrlShortener(UrlShortenerQuery urlShortenerQuery) {
-        return null;
+    public GetUrlShortenerResponse getUrlShortener(UrlShortenerQuery urlShortenerQuery) {
+        return urlShortenerGetQueryHandler.getUrlShortenerAndPublish(urlShortenerQuery);
     }
 
     @Override
     public TrackingUrlShortenerClickingResponse getClickingCount(TrackingUrlShortenerClickingQuery trackingUrlShortenerClickingQuery) {
-        return null;
+        return urlShortenerTrackingQueryHandler.countClicking(trackingUrlShortenerClickingQuery);
     }
 }

@@ -5,11 +5,13 @@ import com.mehrdad.falahati.url.shortener.service.domain.entity.UrlShortenerMapp
 import com.mehrdad.falahati.url.shortener.service.domain.objectvalue.UrlShortenerMappingId;
 
 import java.util.Optional;
+import java.util.UUID;
 
 public interface UrlShortenerMappingRepository {
     UrlShortenerMapping save(UrlShortenerMapping urlShortenerMapping);
     Boolean existByShortUrl(String shortUrl);
     Optional<UrlShortenerMapping> findByShortUrl(String shortUrl);
+    Optional<UrlShortenerMapping> findByShortUrlAndUserId(String shortUrl, UUID userId);
     void deleteById(UrlShortenerMappingId id);
     long countByUserId(UserId userId);
 }

@@ -6,5 +6,5 @@ import lombok.Builder;
 import java.util.UUID;
 
 @Builder
-public record RemoveUrlShortenerCommand(@NotNull UUID userId, @NotNull String shortUrl) {
+public record RemoveUrlShortenerCommand(@NotNull String username, @NotNull String shortUrl) {
 }
