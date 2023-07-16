@@ -17,4 +17,19 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.mehrdad.falahati</groupId>
+            <artifactId>url-shortener-application-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mehrdad.falahati</groupId>
+            <artifactId>common-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+    </dependencies>
 </project>
