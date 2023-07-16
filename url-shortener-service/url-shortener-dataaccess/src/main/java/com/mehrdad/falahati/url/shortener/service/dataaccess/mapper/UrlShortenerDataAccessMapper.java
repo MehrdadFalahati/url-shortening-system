@@ -26,12 +26,21 @@ public class UrlShortenerDataAccessMapper {
     }
 
     public UrlShortenerMappingEntity urlShortenerMappingToEntity(UrlShortenerMapping urlShortenerMapping) {
-        return UrlShortenerMappingEntity.builder()
+        UrlShortenerMappingEntity entity = UrlShortenerMappingEntity.builder()
                 .userId(urlShortenerMapping.getUserId().getValue())
                 .originalUrl(urlShortenerMapping.getOriginalUrl())
                 .shortUrl(urlShortenerMapping.getShortUrl())
                 .createAt(urlShortenerMapping.getCreateAt().toInstant())
                 .modifyAt(urlShortenerMapping.getModifyAt().toInstant())
+                .urlShortenerClickingHistory(urlShortenerClickingHistory(urlShortenerMapping.getUrlShortenerClickingHistory()))
+                .build();
+        entity.getUrlShortenerClickingHistory().setUrlShortenerMapping(entity);
+        return entity;
+    }
+
+    public UrlShortenerClickingHistoryEntity urlShortenerClickingHistory(UrlShortenerClickingHistory urlShortenerClickingHistory) {
+        return UrlShortenerClickingHistoryEntity.builder()
+                .clickingCounter(urlShortenerClickingHistory.getClickCounter())
                 .build();
     }
 

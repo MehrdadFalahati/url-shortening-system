@@ -17,4 +17,52 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.mehrdad.falahati</groupId>
+            <artifactId>url-shortener-domain-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mehrdad.falahati</groupId>
+            <artifactId>url-shortener-application-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mehrdad.falahati</groupId>
+            <artifactId>url-shortener-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mehrdad.falahati</groupId>
+            <artifactId>url-shortener-application</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mehrdad.falahati</groupId>
+            <artifactId>url-shortener-dataaccess</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <name>${project.groupId}/url-shortener.service:${project.version}</name>
+                    </image>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>build-image</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

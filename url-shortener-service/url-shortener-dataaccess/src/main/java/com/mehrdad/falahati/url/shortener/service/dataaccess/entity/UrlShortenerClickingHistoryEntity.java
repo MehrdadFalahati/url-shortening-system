@@ -18,7 +18,7 @@ public class UrlShortenerClickingHistoryEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "US_MAPPING_ID")
     private UrlShortenerMappingEntity urlShortenerMapping;
     private Long clickingCounter;

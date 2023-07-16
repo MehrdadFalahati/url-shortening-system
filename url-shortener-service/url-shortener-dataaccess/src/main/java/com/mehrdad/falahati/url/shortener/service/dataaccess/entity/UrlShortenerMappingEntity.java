@@ -28,6 +28,9 @@ public class UrlShortenerMappingEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Instant modifyAt;
 
+    @OneToOne(mappedBy = "urlShortenerMapping", cascade = CascadeType.ALL)
+    private UrlShortenerClickingHistoryEntity urlShortenerClickingHistory;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

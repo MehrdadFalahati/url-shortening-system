@@ -15,6 +15,8 @@ public class UrlShortenerMapping extends AggregateRoot<UrlShortenerMappingId> {
     private ZonedDateTime createAt;
     private ZonedDateTime modifyAt;
 
+    private UrlShortenerClickingHistory urlShortenerClickingHistory;
+
     public void initialUrlShortenerMapping(String shortUrl) {
         this.createAt = ZonedDateTime.now(ZoneId.of("UTC"));
         this.modifyAt = ZonedDateTime.now(ZoneId.of("UTC"));
@@ -37,6 +39,7 @@ public class UrlShortenerMapping extends AggregateRoot<UrlShortenerMappingId> {
         shortUrl = builder.shortUrl;
         createAt = builder.createAt;
         modifyAt = builder.modifyAt;
+        urlShortenerClickingHistory = builder.urlShortenerClickingHistory;
     }
 
     public UserId getUserId() {
@@ -63,6 +66,14 @@ public class UrlShortenerMapping extends AggregateRoot<UrlShortenerMappingId> {
         return new Builder();
     }
 
+    public UrlShortenerClickingHistory getUrlShortenerClickingHistory() {
+        return urlShortenerClickingHistory;
+    }
+
+    public void setUrlShortenerClickingHistory(UrlShortenerClickingHistory urlShortenerClickingHistory) {
+        this.urlShortenerClickingHistory = urlShortenerClickingHistory;
+    }
+
     public static final class Builder {
         private UrlShortenerMappingId id;
         private UserId userId;
@@ -70,6 +81,7 @@ public class UrlShortenerMapping extends AggregateRoot<UrlShortenerMappingId> {
         private String shortUrl;
         private ZonedDateTime createAt;
         private ZonedDateTime modifyAt;
+        public UrlShortenerClickingHistory urlShortenerClickingHistory;
 
         private Builder() {
         }
@@ -101,6 +113,11 @@ public class UrlShortenerMapping extends AggregateRoot<UrlShortenerMappingId> {
 
         public Builder modifyAt(ZonedDateTime val) {
             modifyAt = val;
+            return this;
+        }
+
+        public Builder urlShortenerClickingHistory(UrlShortenerClickingHistory val) {
+            urlShortenerClickingHistory = val;
             return this;
         }
 

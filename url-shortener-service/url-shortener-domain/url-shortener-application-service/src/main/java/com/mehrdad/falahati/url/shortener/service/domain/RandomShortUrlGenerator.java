@@ -26,6 +26,6 @@ public class RandomShortUrlGenerator {
     }
 
     public String convertShortUrl(String shortUrl) {
-        return "http://localhost:" + serverPort + shortUrl;
+        return "http://localhost:" + serverPort + "/" + shortUrl;
     }
 }
